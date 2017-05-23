@@ -1,0 +1,5 @@
+HTTP_HOST='172.17.2.184'
+SERVER_PORT=8080
+DB_NAME=<db-name>
+DB_USERNAME=<db-username>
+DB_PASSWORD=<db-password>
