@@ -17,7 +17,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
+# gem 'therubyracer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -39,6 +39,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -55,8 +56,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails'
 gem 'rack-proxy'
 gem 'jquery-rails'
-gem 'pry-byebug'
 gem 'rack-reverse-proxy', require: "rack/reverse_proxy"
-
-gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+gem "haml-rails"
+gem 'bootstrap-generators'
+gem 'carrierwave'

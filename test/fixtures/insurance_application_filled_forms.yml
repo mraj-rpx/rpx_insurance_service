@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  insurance_application_form: one
+  status: 1
+  submitted_at: 2017-05-25 13:21:39
+
+two:
+  user_id: 1
+  insurance_application_form: two
+  status: 1
+  submitted_at: 2017-05-25 13:21:39

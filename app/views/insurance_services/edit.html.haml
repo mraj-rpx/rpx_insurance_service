@@ -1,0 +1,12 @@
+%h3 Edit a Insurance Application Form
+= render partial: 'save_and_submit_buttons'
+.row
+  .col-lg-12
+    %iframe#web-viewer-frame{:frameborder => "no", :src => "/pc/my_viewer.html?file_url=#{@form_url}", :style => "width: 100%; height: 600px;"}
+= render partial: 'save_and_submit_buttons'
+
+.row.hidden
+  = form_for @app_form, url: insurance_service_path(@app_form.id), method: :put do |f|
+    = f.text_field :insurance_application_form_id
+    = f.text_area :xml, class: 'xml-content-field'
+    = f.text_field :status, class: 'status-field'

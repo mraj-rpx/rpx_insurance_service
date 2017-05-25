@@ -1,0 +1,11 @@
+%h3 Select a Insurance Application Form
+
+.row
+  .col-lg-12
+    %table.table
+      %thead
+        %tr
+          %th Form Name
+          %th File
+      %tbody
+        = render partial: 'app_form', collection: @ins_app_forms
