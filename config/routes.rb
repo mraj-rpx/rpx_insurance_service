@@ -5,6 +5,11 @@ Rails.application.routes.draw do
     collection do
       get :select_form
     end
+
+    member do
+      get :form_xml_content
+      get :download_pdf
+    end
   end
   root to: 'insurance_services#index'
 end

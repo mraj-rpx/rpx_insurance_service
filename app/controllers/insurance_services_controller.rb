@@ -1,3 +1,5 @@
+require 'net/http/post/multipart'
+
 class InsuranceServicesController < ApplicationController
   before_action :set_app_form, only: [:new]
   before_action :set_app_filled_form, only: [:edit]
@@ -28,6 +30,27 @@ class InsuranceServicesController < ApplicationController
 
   def select_form
     @ins_app_forms = InsuranceApplicationForm.all
+  end
+
+  def form_xml_content
+    @app_form = InsuranceApplicationFilledForm.find(params[:id])
+    render xml: @app_form.xml
+  end
+
+  def download_pdf
+    @app_form = InsuranceApplicationFilledForm.find(params[:id])
+
+    uri = URI.parse("http://#{ENV['WEB_VIEWER_HOST']}:#{ENV['WEB_VIEWER_PORT']}/asserts/#{ENV['WEB_VIEWER_FORM_HASH']}/exportDocument?accessToken=#{ENV['ACCESS_TOKEN']}")
+    request = Net::HTTP::Post::Multipart.new(uri.path, {
+                                           fileName: File.open(Rails.root.join("public/#{@app_form.insurance_application_form.file.url}")),
+                                           formData: @app_form.xml,
+                                           annotsData: '[]',
+                                           inkData: nil,
+                                           language: 'en-US',
+                                           watermarkInfo: '[]'
+                                             })
+    response = Net::HTTP.start(uri.host, uri.port){ |http| http.request(request) }
+    send_data response.body, filename: @app_form.insurance_application_form[:file]
   end
 
   private

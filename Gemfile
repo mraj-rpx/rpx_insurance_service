@@ -61,3 +61,4 @@ gem 'twitter-bootstrap-rails'
 gem "haml-rails"
 gem 'bootstrap-generators'
 gem 'carrierwave'
+gem 'multipart-post'

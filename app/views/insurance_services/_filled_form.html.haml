@@ -1,7 +1,8 @@
 %tr
-  %td= filled_form.insurance_application_form_id
-  %td= filled_form.xml
-  %td= filled_form.user_id
-  %td= filled_form.submitted_at
-  %td= filled_form.status
+  %td= filled_form.insurance_application_form.name
+  %td= link_to 'View XML Content', "#{form_xml_content_insurance_service_path(filled_form.id)}.xml", target: '_blank'
+  %td
+    = filled_form.status
+    - if filled_form.PUBLISHED?
+      = link_to '(Download PDF)', download_pdf_insurance_service_path(filled_form), target: '_blank'
   %td= link_to 'Edit', edit_insurance_service_path(filled_form.id), class: 'btn btn-sm btn-primary'
