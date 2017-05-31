@@ -24,23 +24,22 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{href: '/'}
-            = image_tag('rpx_logo.gif', class: 'pull-left rpx-logo')
-            %span.vertical-divider &#x20;|
-            RPXInsuranceService
+          %a.navbar-brand.navbar-brand-anchor{href: '/'}
+            = image_tag('RPX-Insurance-Logo.png', class: 'pull-left rpx-logo')
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{href: '#'} Broker Resources
+            %li
+              %a{href: '#'} Products
+            %li
+              %a{href: '#'} FAQs
+            %li
+              %a{href: '#'} Contact Us
+            %li
+              %a{href: '#'} Get a Quote
             %li.active
               %a{href: "#"} Login
-      .search-bar
-        .container
-          %form#global_search_form
-            .input-group.search_elements_group
-              .input-group-btn
-                = select_tag 'category', options_for_select(search_bar_applications), class: 'search-bar-apps selectpicker'
-              = text_field_tag 'query', nil, class: "form-control", placeholder: 'Search'
-              .input-group-addon#search_form_submit
-                %span.glyphicon.glyphicon-search
     .container
       - flash.each do |name, msg|
         = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do

@@ -3,12 +3,12 @@ body {
     margin: 2em 0;
   }
 
-  .rpx-logo {
-    width: 3em;
-  }
+  .navbar-brand-anchor {
+    padding: 0;
 
-  .search-bar {
-    padding: 1em 0;
-    background-color: $rpx-theme;
+    .rpx-logo {
+      width: 12em;
+      padding: 1em 1em;
+    }
   }
 }
