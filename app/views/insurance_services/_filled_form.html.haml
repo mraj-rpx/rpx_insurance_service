@@ -1,8 +1,15 @@
-%tr
-  %td= filled_form.insurance_application_form.name
-  %td= link_to 'View XML Content', "#{form_xml_content_insurance_service_path(filled_form.id)}.xml", target: '_blank'
+%tr.dataRow.even.first.last
+  %td= "Application - " + filled_form.id.to_s
+  %td= filled_form.company_name
   %td
-    = filled_form.status
-    - if filled_form.PUBLISHED?
-      = link_to '(Download PDF)', download_pdf_insurance_service_path(filled_form), target: '_blank'
-  %td= link_to 'Edit', edit_insurance_service_path(filled_form.id), class: 'btn btn-sm btn-primary'
+    %span= filled_form.PUBLISHED? ?  "Submitted" : "Draft Application"
+  %td
+    .row
+      .col-lg-6
+        = link_to 'Continue Application', edit_insurance_service_path(filled_form.id), class: 'btn btn-sm btn-primary'
+      .col-lg-3.download
+        = link_to download_pdf_insurance_service_path(filled_form), target: '_blank' do
+          %span.glyphicon.glyphicon-download{"aria-hidden" => "true"}
+      .col-lg-3.download
+        = link_to "#{form_xml_content_insurance_service_path(filled_form.id)}.xml", target: '_blank' do
+          %span.glyphicon.glyphicon-share{"aria-hidden" => "true"}

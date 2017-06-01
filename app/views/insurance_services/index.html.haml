@@ -1,15 +1,50 @@
-%h3 Saved/Submitted Insurance Application Forms
-
 .row.new-form-btn
   = link_to 'Create a New Insurance Form', select_form_insurance_services_path, class: 'btn btn-primary pull-right'
-.row
-  .col-lg-12
-    %table.table
-      %thead
-        %tr
-          %th Form Name
-          %th Form XML Content
-          %th Status
-          %th Actions
-      %tbody
-        = render partial: 'filled_form', collection: @filled_forms
+
+.panel.panel-default
+  .panel-body
+    %div
+      %h4
+        Welcome
+        %i Insurance Test
+    %hr/
+    %h6
+      Company Name :
+      %i
+        %span#pgId:theForm:j_id21 InsuranceTest
+    %br/
+    %br/
+    %span#pgId:theForm:j_id26
+      %p
+        %span
+          To begin the application process, please select the application you wish to work on from the list below.
+          %br/
+          %br/
+          The application will ask you for financial information, assertion activity history and litigation cost information.  The process will go more quickly if you have that information when you begin the application.  Answer all questions completely and to the best of your knowledge.  All information provided is important to the underwriting process and will be relied upon in generating your quotation terms.
+          %br/
+          %br/
+          If you need to leave the application prior to completing all the questions you can resume the application where you leave off by logging back in to this page and selecting the application in progress.  The 
+          %a{:href => "/insuranceapp/InsuranceLegalNotice", :target => "_blank"} Legal Notice
+          section provides important information about this Application, the coverage being applied for and RPX Insurance Services, LLC.
+    %span#pgId:theForm:nestedAccounts
+      .apexp
+        .individualPalette
+          .Custom72Block
+            .application-list
+              .pbBody
+                %table#pgId:theForm:j_id36:j_id38.list{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+                  %colgroup{:span => "4"}
+                  %thead
+                    %tr.headerRow
+                      %th
+                        .th-body Application Number
+                      %th
+                        .th-body Company Name
+                      %th
+                        .th-body Status
+                      %th
+                        .th-body
+                  %tbody
+                    = render partial: 'filled_form', collection: @filled_forms
+              .pbFooter.secondaryPalette
+                .bg

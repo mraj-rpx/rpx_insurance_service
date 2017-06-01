@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525075139) do
+ActiveRecord::Schema.define(version: 20170601140439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "adminpack"
+  enable_extension "btree_gist"
+  enable_extension "dblink"
+  enable_extension "file_fdw"
+  enable_extension "fuzzystrmatch"
+  enable_extension "insert_username"
+  enable_extension "intarray"
+  enable_extension "pg_buffercache"
+  enable_extension "pg_stat_statements"
+  enable_extension "pg_trgm"
+  enable_extension "pgcrypto"
+  enable_extension "pg_freespacemap"
+  enable_extension "hstore"
+  enable_extension "postgis"
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "insurance_application_filled_forms", force: :cascade do |t|
     t.integer "user_id"
@@ -23,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170525075139) do
     t.datetime "submitted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "company_id"
     t.index ["insurance_application_form_id"], name: "ins_app_form_id_idx"
   end
 
