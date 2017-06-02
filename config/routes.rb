@@ -11,5 +11,9 @@ Rails.application.routes.draw do
       get :download_pdf
     end
   end
+
+  scope 'admin', as: 'admin' do
+    resources :insurance_services
+  end
   root to: 'insurance_services#index'
 end

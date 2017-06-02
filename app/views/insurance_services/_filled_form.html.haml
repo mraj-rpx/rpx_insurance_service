@@ -8,8 +8,8 @@
       .col-lg-6
         = link_to 'Continue Application', edit_insurance_service_path(filled_form.id), class: 'btn btn-sm btn-primary'
       .col-lg-3.download
-        = link_to download_pdf_insurance_service_path(filled_form), target: '_blank' do
+        = link_to download_pdf_insurance_service_path(filled_form), {target: '_blank', title: 'Download PDF'} do
           %span.glyphicon.glyphicon-download{"aria-hidden" => "true"}
       .col-lg-3.download
-        = link_to "#{form_xml_content_insurance_service_path(filled_form.id)}.xml", target: '_blank' do
+        = link_to "#{form_xml_content_insurance_service_path(filled_form.id)}.xml", {target: '_blank', title: 'View form fields XML content'} do
           %span.glyphicon.glyphicon-share{"aria-hidden" => "true"}
