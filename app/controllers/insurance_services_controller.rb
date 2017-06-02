@@ -6,7 +6,7 @@ class InsuranceServicesController < ApplicationController
   before_action :set_file_path, only: [:new, :edit]
 
   def index
-    @filled_forms = InsuranceApplicationFilledForm.all
+    @filled_forms = InsuranceApplicationFilledForm.all.order(created_at: :desc)
   end
 
   def new
@@ -69,6 +69,6 @@ class InsuranceServicesController < ApplicationController
   end
 
   def permit_params
-    params.require(:insurance_application_filled_form).permit(:xml, :status, :insurance_application_form_id)
+    params.require(:insurance_application_filled_form).permit(:xml, :status, :insurance_application_form_id, :company_id)
   end
 end

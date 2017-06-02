@@ -8,5 +8,6 @@
 .row.hidden
   = form_for @app_form_new, url: insurance_services_path, method: :post do |f|
     = f.text_field :insurance_application_form_id, value: @ins_app_form.id
+    = f.text_field :company_id, value: Company.first.id
     = f.text_area :xml, class: 'xml-content-field'
     = f.text_field :status, class: 'status-field'
