@@ -38,8 +38,9 @@
               %a{href: '#'} Contact Us
             %li
               %a{href: '#'} Get a Quote
-            %li.active
-              %a{href: "#"} Login
+            - if current_user
+              %li.active
+                = link_to "Logout", destroy_user_session_path, method: "delete"
     .container
       - flash.each do |name, msg|
         = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do

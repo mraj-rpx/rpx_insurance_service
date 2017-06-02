@@ -62,3 +62,4 @@ gem "haml-rails"
 gem 'bootstrap-generators'
 gem 'carrierwave'
 gem 'multipart-post'
+gem 'devise'

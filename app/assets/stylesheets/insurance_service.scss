@@ -143,4 +143,93 @@ body {
             }
         }
     }
+    .container {
+        width: 83.59em;
+    }
+    .container.login {
+        margin-top: 2em;
+        padding: 2em 4em 10em 2em;
+    }
+    .well {
+        background-color: #F5F5F5;
+        border: 0.1em solid #E3E3E3;
+        border-radius: 0.4em;
+        box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.05) inset;
+        margin-bottom: 2em;
+        min-height: 2em;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+    h3,
+    h2 {
+        color: inherit;
+        font-family: inherit;
+        font-weight: 500;
+        line-height: 1.1;
+    }
+    h2 {
+        margin-top: 0.65em;
+        margin-bottom: 0.33em;
+        font-size: 2.15em;
+    }
+    h3 {
+        margin-top: 0.81em;
+        margin-bottom: 0.42em;
+        font-size: 1.7em;
+    }
+    padding-top: 5.6em;
+    form {
+        .btn-primary,
+        .btn-primary:hover {
+            background-color: #428BCA;
+            border-color: #357EBD;
+            color: #FFFFFF;
+            background-image: none;
+        }
+    }
+    form.login-form {
+        background: linear-gradient(to bottom, #74B7E0 0%, #F6F6F6 98%, #F5F5F5 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+        color: #000000;
+        padding: 1em 3em 5em 5em;
+        fieldset.fieldset-padding-update {
+            padding-left: 1.3em;
+            .clearfix:before,
+            .clearfix:after {
+                content: " ";
+                display: table;
+            }
+            .clearfix:after {
+                clear: both;
+            }
+            .form-control.control-dimension-update {
+                margin-top: 0.5em;
+                width: 23em;
+                height: 2.45em;
+                padding: 0.375em 0.75em;
+            }
+            .label {
+                color: #000000;
+                font-size: 1.5em;
+                font-weight: normal;
+                padding: 0;
+                border-radius: 0.25em;
+                display: inline;
+                line-height: 1;
+                text-align: center;
+                margin-bottom: 0.3em;
+                background-color: transparent;
+            }
+        }
+        .spacer {
+            padding: 1.5em 0;
+        }
+        label.checkbox {
+            padding-left: 0;
+            display: block;
+            font-weight: bold;
+            width: 21.5em;
+            text-align: left;
+        }
+    }
 }

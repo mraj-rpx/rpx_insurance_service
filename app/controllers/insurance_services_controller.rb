@@ -4,6 +4,7 @@ class InsuranceServicesController < ApplicationController
   before_action :set_app_form, only: [:new]
   before_action :set_app_filled_form, only: [:edit]
   before_action :set_file_path, only: [:new, :edit]
+  before_action :authenticate_user!
 
   def index
     @filled_forms = InsuranceApplicationFilledForm.all.order(created_at: :desc)
