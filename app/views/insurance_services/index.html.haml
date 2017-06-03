@@ -1,17 +1,14 @@
-.row.new-form-btn
-  = link_to 'Create a New Insurance Form', select_form_insurance_services_path, class: 'btn btn-primary pull-right'
-
 .panel.panel-default
   .panel-body
     %div
       %h4
         Welcome
-        %i Insurance Test
+        %i John Doe
     %hr/
     %h6
       Company Name :
       %i
-        %span#pgId:theForm:j_id21 InsuranceTest
+        %span#pgId:theForm:j_id21 XYZ Corp
     %br/
     %br/
     %span#pgId:theForm:j_id26
@@ -42,6 +39,10 @@
                         .th-body Company Name
                       %th
                         .th-body Status
+                      %th
+                        .th-body Last Modified Time
+                      %th
+                        .th-body Application Type
                       %th
                         .th-body
                   %tbody

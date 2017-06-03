@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   scope 'admin', as: 'admin' do
-    resources :insurance_services
+    resources :insurance_applications
   end
   root to: 'insurance_services#index'
 end
