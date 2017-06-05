@@ -12,7 +12,6 @@ class InsuranceApplicationFilledForm < ApplicationRecord
     params[:order].keys.each do |key|
       order_string << "#{params['columns'][params[:order][key]["column"]]["data"]} #{params[:order][key]["dir"]}"
     end
-    query.order(order_string.join(", "))
-    query.limit(params[:length] || 10).offset(params[:start] || 0)
+    query.order(order_string.join(", ")).limit(params[:length] || 10).offset(params[:start] || 0)
   end
 end
