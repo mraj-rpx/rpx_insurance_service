@@ -11,6 +11,11 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
 @import 'bootstrap-generators';
 @import 'bootstrap_selector';
 @import 'insurance_service';
+@import 'jquery.dataTables.min';
+@import 'dataTables.bootstrap.min';
+@import 'select2';
+@import 'select2-bootstrap';

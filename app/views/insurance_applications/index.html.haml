@@ -1,0 +1,28 @@
+%a.btn.btn-info.btn-lg{"data-target" => "#insurance-app-create", "data-toggle" => "modal", :type => "button"} Open Modal
+%table#example.display.table.table-striped.table-bordered{:cellspacing => "0", :width => "100%"}
+  %thead
+    %tr
+      %th Application Number
+      %th Company Name
+      %th Status
+      %th Last Modified Time
+      %th Application Type
+      %th
+
+#insurance-app-create.modal.fade{:role => "dialog"}
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title Create Insurance Service
+      .modal-body
+        = form_for @app_form_new, url: insurance_services_path, method: :post, html: {class: "form-horizontal", id: "insurance_application_create"} do |f|
+          .form-group
+            .col-md-10
+              = f.select(:insurance_application_form_id, InsuranceApplicationForm.all.collect {|u| [u.name, u.id]}, {include_blank: true}, {data: {behavior: "LoadSelect2", placeholder: "Select an Application Type"}, class: "select2 col-sm-10", id: "insurance-application-form"})
+          .form-group
+            .col-sm-10
+              = f.select(:company_id, {}, {}, {data: {behavior: "LoadAjaxSelect2", placeholder: "Select a Company"}, class: "select2 col-sm-10", id: "insurance-company"})
+      .modal-footer
+        %button#insurance-form-submit.btn.btn-primary{data: {behavior: "SubmitForm", formid: "insurance_application_create"}} Create

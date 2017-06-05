@@ -3,12 +3,12 @@
     %div
       %h4
         Welcome
-        %i John Doe
+        %i= "#{current_user.first_name} #{current_user.last_name}"
     %hr/
     %h6
       Company Name :
       %i
-        %span#pgId:theForm:j_id21 XYZ Corp
+        %span#pgId:theForm:j_id21= "#{current_user.company_name}"
     %br/
     %br/
     %span#pgId:theForm:j_id26

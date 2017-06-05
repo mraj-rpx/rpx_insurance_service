@@ -1,5 +1,6 @@
 class SessionsController < Devise::SessionsController
   include SsoAuthentication
+  skip_before_action :check_or_login_using_token
 
   def create
     do_login

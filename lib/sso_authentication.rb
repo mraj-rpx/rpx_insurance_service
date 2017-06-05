@@ -62,7 +62,7 @@ module SsoAuthentication
 
   def app_sign_out
     clear_session
-    sign_out_and_redirect(current_user) unless current_user
+    sign_out_and_redirect(current_user) if current_user
   end
 
   def set_session_cookie(response)
@@ -82,7 +82,6 @@ module SsoAuthentication
     set_session_cookie(response)
     sign_in_args = []
     sign_in_args << user
-    clear_session unless user && user.confirmed?
     sign_in(*sign_in_args) if user
   end
 

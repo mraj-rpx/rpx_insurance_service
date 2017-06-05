@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20170601140439) do
     t.datetime "submitted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "company_id"
+    t.string "company_id"
     t.index ["insurance_application_form_id"], name: "ins_app_form_id_idx"
   end
 

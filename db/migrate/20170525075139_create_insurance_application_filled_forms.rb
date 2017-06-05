@@ -6,7 +6,6 @@ class CreateInsuranceApplicationFilledForms < ActiveRecord::Migration[5.1]
       t.integer :status
       t.string :xml
       t.datetime :submitted_at
-
       t.timestamps
     end
   end

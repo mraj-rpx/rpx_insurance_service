@@ -1,21 +1,23 @@
 require 'net/http/post/multipart'
 
 class InsuranceServicesController < ApplicationController
-  before_action :set_app_form, only: [:new]
+  before_action :authenticate_user!
+  # before_action :set_app_form, only: [:new]
   before_action :set_app_filled_form, only: [:edit]
-  before_action :set_file_path, only: [:new, :edit]
+  before_action :set_file_path, only: [:edit]
 
   def index
-    @filled_forms = InsuranceApplicationFilledForm.all.order(created_at: :desc)
+    @filled_forms = InsuranceApplicationFilledForm.order(created_at: :desc).where(company_id: current_user.account_id)
   end
 
   def new
     @app_form_new = InsuranceApplicationFilledForm.new
+    render :layout => false
   end
 
   def create
     @app_form = InsuranceApplicationFilledForm.create(permit_params)
-    redirect_to insurance_services_path, notice: 'Successfully create the insurance application form.'
+    render json: {success: true}
   end
 
   def edit

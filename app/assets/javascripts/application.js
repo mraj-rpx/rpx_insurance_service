@@ -17,4 +17,10 @@
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-select
+//= require jquery.dataTables.min
+//= require select2.min
 //= require_tree .
+
+$(document).ready(function() {
+    Elemental.load(document);
+});

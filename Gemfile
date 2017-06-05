@@ -63,3 +63,6 @@ gem 'bootstrap-generators'
 gem 'carrierwave'
 gem 'multipart-post'
 gem 'devise'
+gem 'httparty'
+gem 'elementaljs-rails'
+
