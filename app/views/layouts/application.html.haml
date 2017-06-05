@@ -25,7 +25,7 @@
             %span.icon-bar
             %span.icon-bar
           %a.navbar-brand.navbar-brand-anchor{href: '/'}
-            = image_tag('RPX-Insurance-Logo.png', class: 'pull-left rpx-logo')
+            = image_tag('logo.svg', class: 'pull-left rpx-logo')
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
             %li
@@ -36,10 +36,13 @@
               %a{href: '#'} FAQs
             %li
               %a{href: '#'} Contact Us
-            %li
+            %li.active
               %a{href: '#'} Get a Quote
             - if current_user
-              %li.active
+              - if current_user.has_role?("admin")
+                %li
+                  = link_to "Admin", admin_insurance_applications_path
+              %li
                 = link_to "Logout", destroy_user_session_path, method: "delete"
     .container
       - flash.each do |name, msg|

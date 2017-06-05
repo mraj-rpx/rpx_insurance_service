@@ -1,28 +1,37 @@
-<div class="container login well">
-  <div class="pull-left col-md-5">
-    <h2>Welcome to RPX Insurance Services</h2>
-    <p class="app-description">
-      This is the RPX hub for analysis tools and data enrichment applications. Please contact the&nbsp;
-      <a class="team-contact" href="mailto:internalappsteam@rpxcorp.com">application team</a>
-      &nbsp;for further access or any related queries. Thank you.
-    </p>
+<div class="container login-header-panel">
+  <div class="row">
+    <div class='col-md-12'>
+      <h3>
+        Access Your Account
+      </h3>
+    </div>
   </div>
-  <%= form_tag(session_path(resource_name), method: :post, :class => "well col-md-5 pull-right login-form", role: "form" ) do %>
-    <h3>User Log In</h3>
-    <fieldset class="fieldset-padding-update">
-      <%= label_tag 'login', "E-Mail", class: "label" %>
-      <%= text_field_tag 'user[email]', '', :autofocus => true, :required => "required", :class => "form-control pull-right control-dimension-update" %>
-      <div class="spacer clearfix"></div>
-      <%= label_tag 'password', 'Password', class: "label" %>
-      <%= password_field_tag 'user[password]', '', :required => "required", :class => "form-control pull-right control-dimension-update" %>
-      <div class="spacer"></div>
-      <label class="checkbox pull-right">
-        <%= check_box_tag 'user[remember]' %>
-        Remember me on this computer
-      </label>
-      <p>
-        <%= submit_tag "Login", class: "btn btn-primary pull-right" %>
-      </p>
-    </fieldset>
-  <% end %>
+</div>
+<div class="container login">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <h5>
+        Please complete the below fields to login in to view your policy details.
+      </h5>
+    </div>
+    <div class='col-md-12'>
+      <%= form_tag(session_path(resource_name), method: :post, :class => "col-md-offset-3 col-md-6 form-horizontal", role: "form" ) do %>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <%= text_field_tag 'user[email]', '', :autofocus => true, :required => "required", :class => "form-control pull-right control-dimension-update", placeholder: "Email" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <%= password_field_tag 'user[password]', '', :required => "required", :class => "form-control pull-right control-dimension-update", placeholder: "Password" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-offset-3 col-md-6">
+            <%= submit_tag "Login", class: "btn btn-warning" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

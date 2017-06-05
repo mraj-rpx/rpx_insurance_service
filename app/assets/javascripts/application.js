@@ -18,6 +18,7 @@
 //= require bootstrap
 //= require bootstrap-select
 //= require jquery.dataTables.min
+//= require dataTables.bootstrap.min
 //= require select2.min
 //= require_tree .
 
