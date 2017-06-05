@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601140439) do
+ActiveRecord::Schema.define(version: 20170601140413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,12 +49,6 @@ ActiveRecord::Schema.define(version: 20170601140439) do
     t.datetime "created_at", default: "2017-05-26 06:23:45", null: false
     t.datetime "updated_at", default: "2017-05-26 06:23:45", null: false
     t.index ["ip"], name: "index_captcha_whitelists_on_ip"
-  end
-
-  create_table "companies", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "failed_logins", id: :serial, force: :cascade do |t|
