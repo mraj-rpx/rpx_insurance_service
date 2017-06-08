@@ -7,5 +7,6 @@ json.data @data do |datum|
   json.updated_at datum.updated_at.strftime('%m/%d/%Y %H:%M')
   json.status (datum.status ? "Submitted" : "Draft Application")
   json.application_type datum.application_type
+  json.modified_by datum.modified_by
   json.application_number datum.application_number
 end

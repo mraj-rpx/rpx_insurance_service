@@ -20,6 +20,7 @@
 //= require jquery.dataTables.min
 //= require dataTables.bootstrap.min
 //= require select2.min
+//= require behavior
 //= require_tree .
 
 $(document).ready(function() {

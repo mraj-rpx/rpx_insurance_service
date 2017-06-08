@@ -93,7 +93,8 @@ body {
                                 .row {
                                     .download {
                                         a {
-                                            span.glyphicon {
+                                            span.glyphicon,
+                                            .fa {
                                                 font-size: 1.5em;
                                             }
                                         }
@@ -152,15 +153,20 @@ body {
         }
     }
     .custom-column {
-        min-width: 7rem;
+        min-width: 9rem;
         a {
             display: inline-block;
-            margin: 0 0.625rem;
+            margin: 0 0.25rem;
             vertical-align: middle;
-            span.glyphicon {
+            span.glyphicon,
+            .fa {
                 font-size: 1.5em;
             }
         }
+    }
+    .popover-content {
+        min-width: 15rem;
+        padding: 25px 20px;
     }
     .container.login-header-panel {
         background-image: url("header-banner-bg.png");

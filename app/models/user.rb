@@ -10,4 +10,12 @@ class User < ApplicationRecord
   def has_role?(role_name)
     user_roles.map(&:name).include?(role_name)
   end
+
+  def self.current=(user)
+    Thread.current[:current_user] = user
+  end
+
+  def self.current
+    Thread.current[:current_user]
+  end
 end

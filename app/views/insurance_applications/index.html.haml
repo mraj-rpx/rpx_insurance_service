@@ -6,10 +6,11 @@
     %tr
       %th Application Number
       %th Company Name
-      %th Status
-      %th Last Modified Time
       %th Application Type
-      %th
+      %th Modified By
+      %th Last Modified Time
+      %th Status
+      %th Actions
 
 #insurance-app-create.modal.fade{:role => "dialog"}
   .modal-dialog
@@ -22,9 +23,9 @@
         = form_for @app_form_new, url: insurance_services_path, method: :post, html: {class: "form-horizontal", id: "insurance_application_create"} do |f|
           .form-group
             .col-md-10
-              = f.select(:insurance_application_form_id, InsuranceApplicationForm.all.collect {|u| [u.name, u.id]}, {include_blank: true}, {data: {behavior: "LoadSelect2", placeholder: "Select an Application Type"}, class: "select2 col-sm-10", id: "insurance-application-form"})
+              = f.select(:insurance_application_form_id, InsuranceApplicationForm.all.collect {|u| [u.name, u.id]}, {include_blank: true}, {data: {behavior: "InsuranceService.Behaviors.LoadSelect2", placeholder: "Select an Application Type"}, class: "select2 col-sm-10", id: "insurance-application-form"})
           .form-group
             .col-sm-10
-              = f.select(:company_id, {}, {}, {data: {behavior: "LoadAjaxSelect2", placeholder: "Select a Company"}, class: "select2 col-sm-10", id: "insurance-company"})
+              = f.select(:company_id, {}, {}, {data: {behavior: "InsuranceService.Behaviors.LoadAjaxSelect2", placeholder: "Select a Company"}, class: "select2 col-sm-10", id: "insurance-company"})
       .modal-footer
-        %button#insurance-form-submit.btn.btn-primary{data: {behavior: "SubmitForm", formid: "insurance_application_create"}} Create
+        %button#insurance-form-submit.btn.btn-primary{data: {behavior: "InsuranceService.Behaviors.SubmitForm", formid: "insurance_application_create"}} Create
