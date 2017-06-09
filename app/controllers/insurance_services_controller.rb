@@ -28,7 +28,7 @@ class InsuranceServicesController < ApplicationController
     params[:insurance_application_filled_form][:xml] = params[:insurance_application_filled_form][:xml].gsub(/&/, "&amp;") if params[:insurance_application_filled_form] && params[:insurance_application_filled_form][:xml]
     @app_form.update_attributes(permit_params)
     redired_condition = params[:insurance_application_filled_form][:admin_edit] == "true"
-    redirect_to (redired_condition ? insurance_services_path : admin_insurance_applications_path), notice: 'Successfully updated the insurance application form.'
+    redirect_to (redired_condition ? admin_insurance_applications_path : insurance_services_path), notice: 'Successfully updated the insurance application form.'
   end
 
   def select_form
