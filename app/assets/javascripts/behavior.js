@@ -56,7 +56,7 @@ InsuranceService.Behaviors.AdminGearPopover = function(element) {
         animation: false,
         content: function() {
             var app_id = $(this).data("app_id")
-            return "<div class='list-group'><a class='list-group-item' href='/insurance_services/#{app_id}/edit?admin_edit=true'>Edit</a><a class='list-group-item' href='/insurance_services/#{app_id}/download_pdf'>Download</a></div>"
+            return "<div class='list-group'><a class='list-group-item' href='/insurance_services/" + app_id + "/edit?admin_edit=true'>Edit</a><a class='list-group-item' href='/insurance_services/" + app_id + "/download_pdf'>Download</a></div>"
         }
     }).on("mouseenter", function() {
         var _this = this;

@@ -166,7 +166,10 @@ body {
     }
     .popover-content {
         min-width: 15rem;
-        padding: 25px 20px;
+        padding: 15px 10px;
+        .list-group {
+            margin: 0;
+        }
     }
     .container.login-header-panel {
         background-image: url("header-banner-bg.png");
