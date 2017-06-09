@@ -1,6 +1,5 @@
-.pull-left
-  = link_to 'Cancel', edit_insurance_service_path(@app_form, (params[:admin_edit] ? {admin_edit: params[:admin_edit]} : {})), {class: "btn btn-primary"}
 .pull-right.save-submit-button
+  = link_to 'Cancel', edit_insurance_service_path(@app_form, (params[:admin_edit] ? {admin_edit: params[:admin_edit]} : {})), {class: "btn btn-primary"}
   %a.btn.btn-primary.form-save{data: {status: 'DRAFT'}} SAVE
   - unless params[:admin_edit] == "true"
     %a.btn.btn-primary.form-submit{data: {status: 'PUBLISHED'}} SUBMIT

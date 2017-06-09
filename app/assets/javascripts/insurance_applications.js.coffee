@@ -19,7 +19,7 @@ $(document).ready ->
       'targets': -1
       'data': null
       'render': (data, type, full, meta) ->
-        "<div class='custom-column'><a href='/insurance_services/#{data.id}/edit?admin_edit=true'><i aria-hidden='true' class='fa fa-pencil-square-o'></i></a><a target='_blank' title='Download PDF' href='/insurance_services/#{data.id}/download_pdf'><i aria-hidden='true' class='fa fa-arrow-circle-o-down'></i></a><a target='_blank' title='View form fields XML content' href='/insurance_services/#{data.id}/form_xml_content.xml'><i aria-hidden='true' class='fa fa-file-excel-o'></i></a><a href='#' onclick='return false' data-behavior='InsuranceService.Behaviors.AdminGearPopover' data-container='body' data-app_id='#{data.id}' data-placement='left' data-toggle='popover' data-original-title=''><i aria-hidden='true' class='fa fa-cog'></i></a></div>"
+        "<div class='custom-column'><a title='Edit Pdf' href='/insurance_services/#{data.id}/edit?admin_edit=true'><i aria-hidden='true' class='fa fa-pencil-square-o'></i></a><a target='_blank' title='Download PDF' href='/insurance_services/#{data.id}/download_pdf'><i aria-hidden='true' class='fa fa-arrow-circle-o-down'></i></a><a target='_blank' title='View form fields XML content' href='/insurance_services/#{data.id}/form_xml_content.xml'><i aria-hidden='true' class='fa fa-file-excel-o'></i></a><a href='#' onclick='return false' data-behavior='InsuranceService.Behaviors.AdminGearPopover' data-container='body' data-app_id='#{data.id}' data-placement='left' data-toggle='popover' data-original-title='' title='Settings'><i aria-hidden='true' class='fa fa-cog'></i></a></div>"
     }]
     "aaSorting": [[4, "desc"]]
     "drawCallback": (setting) ->
