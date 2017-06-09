@@ -1,5 +1,5 @@
 jQuery ->
-  $(document).on 'turbolinks:load', (event) ->
+  $(document).ready ->
     $('#web-viewer-frame').load( ->
       windowHeight = $(window).height()
       $('#web-viewer-frame').css({'height': windowHeight + 'px'})
