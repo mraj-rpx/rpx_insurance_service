@@ -3,6 +3,7 @@ class InsuranceApplicationFilledForm < ApplicationRecord
   belongs_to :company, foreign_key: 'company_id', primary_key: 'rpx_id'
   before_save :update_modified_by
   delegate :name, to: :company, prefix: true
+  delegate :file_hash, to: :insurance_application_form
   enum status: {DRAFT: 0, PUBLISHED: 1}
 
   def self.fetch_data(params)

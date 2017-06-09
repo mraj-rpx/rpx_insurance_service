@@ -41,8 +41,7 @@ class InsuranceServicesController < ApplicationController
 
   def download_pdf
     @app_form = InsuranceApplicationFilledForm.find(params[:id])
-
-    uri = URI.parse("http://#{ENV['WEB_VIEWER_HOST']}:#{ENV['WEB_VIEWER_PORT']}/asserts/#{ENV['WEB_VIEWER_FORM_HASH']}/exportDocument?accessToken=#{ENV['ACCESS_TOKEN']}")
+    uri = URI.parse("http://#{ENV['WEB_VIEWER_HOST']}:#{ENV['WEB_VIEWER_PORT']}/asserts/#{@app_form.file_hash}/exportDocument?accessToken=#{ENV['ACCESS_TOKEN']}")
     request = Net::HTTP::Post::Multipart.new(uri.path, {
                                            fileName: File.open(Rails.root.join("public/#{@app_form.insurance_application_form.file.url}")),
                                            formData: @app_form.xml,
