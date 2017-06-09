@@ -6,6 +6,9 @@ class InsuranceApplicationFilledForm < ApplicationRecord
   before_validation :update_modified_by
   delegate :name, to: :company, prefix: true
   delegate :file_hash, to: :insurance_application_form
+  delegate :name, to: :insurance_application_form, prefix: true
+  validates :company_id, presence: true
+  validates :insurance_application_form_id, presence: true
   enum status: {DRAFT: 0, PUBLISHED: 1}
 
   def self.fetch_data(params)
