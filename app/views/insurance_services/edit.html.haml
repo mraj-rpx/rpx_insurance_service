@@ -1,4 +1,4 @@
-%h3= "Editing: #{@app_form.company_name}, #{@app_form.insurance_application_form_name.titleize} Application"
+%h3= "Editing: Application-#{@app_form.id}, #{@app_form.company_name} (#{@app_form.insurance_application_form_name.titleize} Application)"
 = render partial: 'save_and_submit_buttons'
 .row
   .col-lg-12
@@ -11,3 +11,4 @@
     = f.text_field :company_id, value: @app_form.company_id
     = f.text_area :xml, class: 'xml-content-field'
     = f.text_field :status, class: 'status-field'
+    = f.hidden_field :admin_edit, value: params[:admin_edit]
