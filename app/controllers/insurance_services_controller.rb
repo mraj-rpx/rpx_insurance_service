@@ -17,7 +17,6 @@ class InsuranceServicesController < ApplicationController
 
   def create
     @app_form = InsuranceApplicationFilledForm.create(permit_params)
-    binding.pry
     render json: {success: true}
   end
 
