@@ -37,7 +37,6 @@ class InsuranceServicesController < ApplicationController
 
   def form_xml_content
     @app_form = InsuranceApplicationFilledForm.find(params[:id])
-    binding.pry
     render xml: (@app_form.xml || "<fields xmlns:xfdf='http://ns.adobe.com/xfdf-transition/'></fields>")
   end
 
