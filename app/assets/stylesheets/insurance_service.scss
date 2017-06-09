@@ -164,6 +164,12 @@ body {
             }
         }
     }
+    .dataTable {
+        th,
+        td {
+            font-size: 14.4px;
+        }
+    }
     .popover-content {
         min-width: 15rem;
         padding: 15px 10px;

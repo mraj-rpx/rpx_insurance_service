@@ -17,6 +17,7 @@ class InsuranceServicesController < ApplicationController
 
   def create
     @app_form = InsuranceApplicationFilledForm.create(permit_params)
+    binding.pry
     render json: {success: true}
   end
 
@@ -25,6 +26,7 @@ class InsuranceServicesController < ApplicationController
 
   def update
     @app_form = InsuranceApplicationFilledForm.find(params[:id])
+    params[:insurance_application_filled_form][:xml] = params[:insurance_application_filled_form][:xml].gsub(/&/, "&amp;") if params[:insurance_application_filled_form] && params[:insurance_application_filled_form][:xml]
     @app_form.update_attributes(permit_params)
 
     redirect_to insurance_services_path, notice: 'Successfully updated the insurance application form.'
@@ -36,7 +38,8 @@ class InsuranceServicesController < ApplicationController
 
   def form_xml_content
     @app_form = InsuranceApplicationFilledForm.find(params[:id])
-    render xml: @app_form.xml || "<fields xmlns:xfdf='http://ns.adobe.com/xfdf-transition/'></fields>"
+    binding.pry
+    render xml: (@app_form.xml || "<fields xmlns:xfdf='http://ns.adobe.com/xfdf-transition/'></fields>")
   end
 
   def download_pdf
