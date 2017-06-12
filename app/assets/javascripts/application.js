@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require rails-ujs
-// = require turbolinks
 //= require bootstrap
 //= require bootstrap-select
 //= require jquery.dataTables.min
