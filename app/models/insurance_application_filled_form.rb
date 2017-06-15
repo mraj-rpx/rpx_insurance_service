@@ -20,6 +20,28 @@ class InsuranceApplicationFilledForm < ApplicationRecord
     params[:order].keys.each do |key|
       order_string << "#{params['columns'][params[:order][key]["column"]]["data"]} #{params[:order][key]["dir"]}"
     end
+    search_query_strings = []
+    search_query_values = []
+    if params[:search][:application_number].present?
+      search_query_strings << "LOWER(CONCAT('Application-', insurance_application_filled_forms.id)) ILIKE ?"
+      search_query_values << "%#{params[:search][:application_number].downcase}%"
+    end
+    if params[:search][:company_name].present?
+      search_query_strings << "LOWER(accounts.account_name) LIKE ?"
+      search_query_values << "%#{params[:search][:company_name].downcase}%"
+    end
+    if params[:search][:insurance_application_form_id].present?
+      search_query_strings << "insurance_application_forms.id = ?"
+      search_query_values << params[:search][:insurance_application_form_id]
+    end
+    if params[:search][:status].present?
+      search_query_strings << "insurance_application_filled_forms.status = ?"
+      search_query_values << params[:search][:status]
+    end
+    if search_query_values.present?
+      search_query_values.unshift search_query_strings.join(" AND ")
+      query = query.where(*search_query_values)
+    end
     query.order(order_string.join(", ")).limit(params[:length] || 10).offset(params[:start] || 0)
   end
 

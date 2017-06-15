@@ -6,7 +6,8 @@ jQuery ->
       window.iframeWindow = $('iframe')[0].contentWindow
 
       docViewerId = 'docViewer';
-      optionsParams = {}
+      optionsParams = 
+        isShowBlink: false
       window.iframeWindow.WebPDF.ready(docViewerId, optionsParams).then((data) ->
         window.iframeWindow.WebPDF.ViewerInstance.on window.iframeWindow.WebPDF.EventList.PAGE_TEXT_LOADED, (event, data) ->
           $(window.iframeWindow.document).find("#btnOffline").hide()
@@ -20,6 +21,7 @@ jQuery ->
 
     $('.form-save, .form-submit').on 'click', (event) ->
       iframeWindow = $('iframe')[0].contentWindow
+      iframeWindow.WebPDF.ViewerInstance.saveAnnots();
       xml = iframeWindow.WebPDF.FormPlugin.getFormXML()
       status = $(event.currentTarget).data('status')
       $('.xml-content-field').val(xml)

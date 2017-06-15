@@ -2,6 +2,26 @@
   .col-md-12
     %a.btn.btn-primary.btn-md.pull-right.create-insurance-application{"data-target" => "#insurance-app-create", "data-toggle" => "modal", :type => "button"} Create Insurance Application
     %a.btn.btn-primary.btn-md.pull-right.upload-application{:type => "button"} Upload Application
+
+.row.admin-search
+  .col-md-6
+    .input-group
+      %span#basic-addon1.input-group-addon Company Name
+      %input.form-control{"aria-describedby" => "basic-addon1", :placeholder => "Search Company", :type => "text", id: "search_company_name", data: {old: ""}}/
+  .col-md-6
+    .input-group
+      %span#basic-addon1.input-group-addon Application Type
+      = select("Application Type", "application_type", InsuranceApplicationForm.all.collect {|p| [ p.name, p.id ] }, { include_blank: true}, html_options={class: "form-control", id: "search_application_type", data: {old: ""}})
+.row.admin-search
+  .col-md-6
+    .input-group
+      %span#basic-addon1.input-group-addon Application Number
+      %input.form-control{"aria-describedby" => "basic-addon1", :placeholder => "Search Application number", :type => "text", id: "search_application_number", data: {old: ""}}/
+  .col-md-6
+    .input-group
+      %span#basic-addon1.input-group-addon Status
+      = select("Status", "status", [["DRAFT", 0], ["PUBLISHED", 1]], { include_blank: true}, html_options={class: "form-control", id: "search_status", data: {old: ""}})
+
 %table#example.display.table.table-striped.table-bordered{:cellspacing => "0", :width => "100%"}
   %thead
     %tr

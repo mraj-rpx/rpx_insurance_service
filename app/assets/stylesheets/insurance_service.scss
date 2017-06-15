@@ -17,6 +17,9 @@ body {
         margin-bottom: 1rem;
         margin-right: 1.25rem;
     }
+    .admin-search {
+        margin-bottom: 1rem;
+    }
     .select2-container {
         width: 100%;
     }
@@ -204,12 +207,12 @@ body {
             margin: 0;
         }
     }
-    .container.login-header-panel {
+    .login-header-panel {
         background-image: url("header-banner-bg.png");
         h3 {
             color: white;
             margin-top: 0;
-            padding: 5rem 0 0;
+            padding: 5rem 0 0 1rem;
             font-size: 1.25rem;
         }
     }
