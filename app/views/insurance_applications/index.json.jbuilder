@@ -1,4 +1,4 @@
-json.recordsFiltered @count
+json.recordsFiltered @records_filtered
 json.recordsTotal @count
 json.draw params[:draw]
 json.data @data do |datum|

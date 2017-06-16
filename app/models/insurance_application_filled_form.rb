@@ -12,14 +12,30 @@ class InsuranceApplicationFilledForm < ApplicationRecord
   enum status: {DRAFT: 0, PUBLISHED: 1}
 
   def self.fetch_data(params)
+    data = base_query(params)
+    .select("insurance_application_filled_forms.id, users.first_name, users.last_name, insurance_application_filled_forms.status, insurance_application_filled_forms.updated_at, accounts.account_name, accounts.account_name as company_name, insurance_application_forms.name as application_type, CONCAT('Application-', insurance_application_filled_forms.id) as application_number")
+    .order(order_string(params).join(", ")).limit(params[:length] || 10).offset(params[:start] || 0)
+    [data, base_query(params).count]
+  end
+
+  def self.base_query(params)
     query = joins(:insurance_application_form)
     .joins(:company)
     .joins(:user_modified)
-    .select("insurance_application_filled_forms.id, users.first_name, users.last_name, insurance_application_filled_forms.status, insurance_application_filled_forms.updated_at, accounts.account_name, accounts.account_name as company_name, insurance_application_forms.name as application_type, CONCAT('Application-', insurance_application_filled_forms.id) as application_number")
+    conditions = condition_query_array(params)
+    query = query.where(*conditions) if conditions.present?
+    query
+  end
+
+  def self.order_string(params)
     order_string = []
     params[:order].keys.each do |key|
       order_string << "#{params['columns'][params[:order][key]["column"]]["data"]} #{params[:order][key]["dir"]}"
     end
+    order_string
+  end
+
+  def self.condition_query_array(params)
     search_query_strings = []
     search_query_values = []
     if params[:search][:application_number].present?
@@ -31,7 +47,7 @@ class InsuranceApplicationFilledForm < ApplicationRecord
       search_query_values << "%#{params[:search][:company_name].downcase}%"
     end
     if params[:search][:insurance_application_form_id].present?
-      search_query_strings << "insurance_application_forms.id = ?"
+      search_query_strings << "insurance_application_filled_forms.insurance_application_form_id = ?"
       search_query_values << params[:search][:insurance_application_form_id]
     end
     if params[:search][:status].present?
@@ -40,9 +56,8 @@ class InsuranceApplicationFilledForm < ApplicationRecord
     end
     if search_query_values.present?
       search_query_values.unshift search_query_strings.join(" AND ")
-      query = query.where(*search_query_values)
     end
-    query.order(order_string.join(", ")).limit(params[:length] || 10).offset(params[:start] || 0)
+    search_query_values
   end
 
   private
