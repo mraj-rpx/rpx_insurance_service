@@ -48,5 +48,6 @@
           .form-group
             .col-sm-10
               = f.select(:company_id, {}, {}, {data: {behavior: "InsuranceService.Behaviors.LoadAjaxSelect2", placeholder: "Select a Company"}, class: "select2 col-sm-10", id: "insurance-company"})
+          = f.hidden_field :id, value: nil
       .modal-footer
         %button#insurance-form-submit.btn.btn-primary{data: {behavior: "InsuranceService.Behaviors.SubmitForm", formid: "insurance_application_create"}} Create

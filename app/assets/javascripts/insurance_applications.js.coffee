@@ -50,15 +50,9 @@ $(document).ready ->
       'targets': -1
       'data': null
       'render': (data, type, full, meta) ->
-        "<div class='custom-column'><a data-turbolinks='false' title='Edit Pdf' href='/insurance_services/#{data.id}/edit?admin_edit=true'><i aria-hidden='true' class='fa fa-pencil-square-o'></i></a><a target='_blank' title='Download PDF' href='/insurance_services/#{data.id}/download_pdf'><i aria-hidden='true' class='fa fa-arrow-circle-o-down'></i></a><a target='_blank' title='View form fields XML content' href='/insurance_services/#{data.id}/form_xml_content.xml'><i aria-hidden='true' class='fa fa-file-excel-o'></i></a><a href='#' onclick='return false' data-behavior='InsuranceService.Behaviors.AdminGearPopover' data-container='body' data-app_id='#{data.id}' data-placement='left' data-toggle='popover' data-original-title='' title='Settings'><i aria-hidden='true' class='fa fa-cog'></i></a></div>"
+        "<div class='custom-column'><a data-turbolinks='false' title='Edit Pdf' href='/insurance_services/#{data.id}/edit?admin_edit=true'><i aria-hidden='true' class='fa fa-pencil-square-o'></i></a><a target='_blank' title='Download PDF' href='/insurance_services/#{data.id}/download_pdf'><i aria-hidden='true' class='fa fa-arrow-circle-o-down'></i></a><a target='_blank' title='View form fields XML content' href='/insurance_services/#{data.id}/form_xml_content.xml'><i aria-hidden='true' class='fa fa-file-excel-o'></i></a><a href='#' onclick='return false' data-behavior='InsuranceService.Behaviors.AdminGearPopover' data-container='body' data-app_id='#{data.id}' data-company_id='#{data.company_id}' data-insurance_application_form_id='#{data.insurance_application_form_id}' data-company_name='#{data.company_name}' data-placement='left' data-toggle='popover' data-original-title='' title='Settings'><i aria-hidden='true' class='fa fa-cog'></i></a></div>"
     }]
     "aaSorting": [[4, "desc"]]
     "drawCallback": (setting) ->
       InsuranceService.applyBehaviors($('#example'));
-  return
-  
-  $('#example thead th').each ->
-    title = $(this).text()
-    debugger;
-    # $(this).append '<input type="text" placeholder="Search ' + title + '" />'
   return

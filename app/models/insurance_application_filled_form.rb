@@ -13,7 +13,7 @@ class InsuranceApplicationFilledForm < ApplicationRecord
 
   def self.fetch_data(params)
     data = base_query(params)
-    .select("insurance_application_filled_forms.id, users.first_name, users.last_name, insurance_application_filled_forms.status, insurance_application_filled_forms.updated_at, accounts.account_name, accounts.account_name as company_name, insurance_application_forms.name as application_type, CONCAT('Application-', insurance_application_filled_forms.id) as application_number")
+    .select("insurance_application_filled_forms.id, users.first_name, users.last_name, insurance_application_filled_forms.status, insurance_application_filled_forms.updated_at, insurance_application_filled_forms.insurance_application_form_id, accounts.account_name, insurance_application_filled_forms.company_id, accounts.account_name as company_name, insurance_application_forms.name as application_type, CONCAT('Application-', insurance_application_filled_forms.id) as application_number")
     .order(order_string(params).join(", ")).limit(params[:length] || 10).offset(params[:start] || 0)
     [data, base_query(params).count]
   end
